@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js for mobile menu toggle -->
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <title>Enterpret Clone</title>
+  </head>
+  <body class="bg-gray-950" x-data="{ mobileMenu: false }">
+
+    <!-- Top Gradient Announcement Bar -->
+    <div class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 text-white text-center text-sm py-2 px-4 fixed top-0 left-0 z-50">
+      <p class="leading-tight">
+        Introducing <span class="font-semibold">Issue Detection AI Agent</span>: Detect, analyze and act on emerging issues – 24/7. 
+        <a href="#" class="underline font-medium hover:text-gray-100 ml-1">Learn more →</a>
+      </p>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-[64px] md:top-8 left-0 w-full bg-gray-950/80 backdrop-blur-md border-b border-gray-800 z-40">
+      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+        
+        <!-- Logo -->
+        <a href="#">
+          <img src="logo.png" alt="Logo" class="h-8 w-auto" />
+        </a>
+
+        <!-- Navigation Menu (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8 text-gray-300 font-medium">
+          <a href="product.html" class="flex items-center gap-1 hover:text-white transition">
+            Product
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="Solution.html" class="flex items-center gap-1 hover:text-white transition">
+            Solutions
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="Customers.html" class="hover:text-white transition">Customers</a>
+          <a href="Resources.html" class="flex items-center gap-1 hover:text-white transition">
+            Resources
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+          <a href="Company.html" class="flex items-center gap-1 hover:text-white transition">
+            Company
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </a>
+        </nav>
+
+        <!-- Right Side (Desktop CTA + Mobile CTA/Hamburger) -->
+        <div class="flex items-center gap-4">
+          <!-- Desktop buttons -->
+          <div class="hidden md:flex items-center gap-4">
+            <a href="#" class="text-gray-300 hover:text-white transition font-medium">Login</a>
+            <a 
+  href="#"
+  class="px-5 py-2 font-medium text-white rounded-full 
+         border-2 border-transparent
+         bg-gray-950
+         bg-clip-padding
+         [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#ec4899,#8b5cf6)_border-box] 
+         hover:opacity-90 transition"
+>
+  Book a Demo
+</a>
+
+          </div>
+
+          <!-- Mobile CTA + Hamburger -->
+          <div class="flex items-center gap-3 md:hidden">
+            <a
+              href="#"
+              class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-4 py-2 rounded-full font-medium text-sm"
+            >
+              Book a Demo
+            </a>
+            <button 
+              class="text-gray-300 focus:outline-none" 
+              @click="mobileMenu = !mobileMenu"
+            >
+              <!-- Open Icon -->
+              <svg x-show="!mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              </svg>
+              <!-- Close Icon -->
+              <svg x-show="mobileMenu" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div 
+        class="md:hidden bg-gray-900 border-t border-gray-800 px-6 py-4 space-y-4 text-gray-300 font-medium"
+        x-show="mobileMenu"
+        x-transition
+      >
+        <a href="#" class="flex items-center justify-between hover:text-white">
+          Product
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#" class="flex items-center justify-between hover:text-white">
+          Solutions
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#" class="block hover:text-white">Customers</a>
+        <a href="#" class="flex items-center justify-between hover:text-white">
+          Resources
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#" class="flex items-center justify-between hover:text-white">
+          Company
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#" class="block hover:text-white">Login</a>
+        <a
+          href="#"
+          class="block text-center bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white px-5 py-2 rounded-full font-medium transition"
+        >
+          Book a Demo
+        </a>
+      </div>
+    </header>
+
+    <!-- Spacer so content is visible -->
+    <div class="h-32"></div>
+
+<!-- Hero Section -->
+<section class="relative bg-gray-950 text-center text-white px-6 py-8 flex flex-col justify-center items-center" style="background-image: url('Rotibank.png'); background-size: cover; background-position: center;">
+  
+  <!-- Optional Overlay for readability -->
+  <div class="absolute inset-0 bg-black/30"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col items-center">
+    <!-- Headline -->
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug sm:leading-tight text-center">
+      Turn feedback chaos into <br />
+      <span class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+        actionable
+      </span> customer intelligence
+    </h1>
+
+    <!-- Subheadline / Description -->
+    <p class="mt-2 sm:mt-3 max-w-xl sm:max-w-2xl text-base sm:text-lg text-gray-300 text-center">
+      Unify feedback across channels and transform it into intelligence that drives product, support, and revenue outcomes.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row gap-3 justify-center mt-3 sm:mt-4">
+      <!-- Book a Demo Button -->
+      <a 
+        href="#"
+        class="px-6 py-2.5 font-bold text-white rounded-full border-2 border-transparent
+               bg-gray-950 bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition text-center"
+      >
+        Book a Demo
+      </a>
+
+      <!-- Take Product Tour Button -->
+      <a 
+        href="#"
+        class="px-6 py-2.5 font-bold text-white rounded-full border-2 border-transparent
+               bg-gray-950 bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-flex items-center justify-center"
+      >
+        Take Product Tour
+        <span class="ml-2 text-gray-300 font-normal">▶</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Full-Width Logo Showcase Section -->
+    <section class="bg-gray-950 py-16">
+        
+
+        <!-- Full Display Image -->
+        <img src="Different Logo Images.png" alt="Company Logos" class="w-full h-auto opacity-90 hover:opacity-100 transition" />
+      </div>
+    </section>
+
+
+
+
+
+<!-- 3rd Section -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-12 text-center md:text-left">
+    
+    <!-- Left Content -->
+    <div class="flex flex-col md:w-1/2 items-center md:items-start">
+      <h2 class="text-4xl md:text-4xl font-extrabold text-white mb-6">
+        Every voice, heard
+      </h2>
+      <p class="mb-4 leading-relaxed text-gray-300 max-w-lg">
+        Aggregate feedback from every channel into one place, and empower teams 
+        with insights that fuel smarter decisions.
+      </p>
+
+      <!-- Testimonial -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="relative">
+          <!-- Gradient Border Behind Image -->
+          <div class="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400"></div>
+          <img 
+            src="Shamsa.png" 
+            alt="Canva Logo" 
+            class="relative w-12 h-12 rounded-full bg-yellow"
+          >
+        </div>
+        <div class="ml-3 text-left">
+          <p class="text-white font-semibold">Sarah Johnson</p>
+          <p class="text-gray-400 text-sm">Head of Insights and User Advocacy</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a 
+        href="#"
+        class="px-6 py-3 font-bold text-white rounded-full 
+               border-2 border-transparent
+               bg-gray-950
+               bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-block"
+      >
+        How Canva Delights 200M Users
+      </a>
+    </div>
+
+    <!-- Right Image -->
+    <div class="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 flex justify-center">
+      <img 
+        class="object-cover object-center rounded-xl shadow-2xl w-full h-auto" 
+        alt="Aggregate Demo" 
+        src="3rd section.png"
+      >
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- 4th Section -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-16 text-center md:text-left">
+    
+    <!-- Left Image -->
+    <div class="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 flex justify-center order-last md:order-first">
+      <img 
+        class="object-cover object-center rounded-xl shadow-2xl w-full h-auto" 
+        alt="Aggregate Demo" 
+        src="4th Section.png"
+      >
+    </div>
+
+    <!-- Right Content (spaced more) -->
+    <div class="flex flex-col md:w-1/2 items-center md:items-start order-first md:order-last md:pl-10">
+      <h2 class="text-4xl md:text-4xl font-extrabold text-white mb-6">
+        Every voice, heard
+      </h2>
+      <p class="mb-4 leading-relaxed text-gray-300 max-w-lg">
+        Aggregate feedback from every channel into one place, and empower teams 
+        with insights that fuel smarter decisions.
+      </p>
+
+      <!-- Testimonial -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="relative">
+          <!-- Gradient Border Behind Image -->
+          <div class="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400"></div>
+          <img 
+            src="Essa.png" 
+            alt="Canva Logo" 
+            class="relative w-12 h-12 rounded-full bg-yellow"
+          >
+        </div>
+        <div class="ml-3 text-left">
+          <p class="text-white font-semibold">Essa Khan</p>
+          <p class="text-gray-400 text-sm">Head of Insights and User Advocacy at Notion</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a 
+        href="#"
+        class="px-6 py-3 font-bold text-white rounded-full 
+               border-2 border-transparent
+               bg-gray-950
+               bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-block"
+      >
+        How Notion Get insights 70% Faster
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- 5th Section -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-12 text-center md:text-left">
+    
+    <!-- Left Content -->
+    <div class="flex flex-col md:w-1/2 items-center md:items-start">
+      <h2 class="text-4xl md:text-4xl font-extrabold text-white mb-6">
+        Drive action with confidence
+      </h2>
+      <p class="mb-4 leading-relaxed text-gray-300 max-w-lg">
+       “Enterpret helps us focus on the 20% that causes the impact. Otherwise,<Br> it's like finding the needle in a haystack, especially <br> when you have issues coming from all over the place.”
+      </p>
+
+      <!-- Testimonial -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="relative">
+          <!-- Gradient Border Behind Image -->
+          <div class="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400"></div>
+          <img 
+            src="Drnoor.png" 
+            alt="Canva Logo" 
+            class="relative w-12 h-12 rounded-full bg-yellow"
+          >
+        </div>
+        <div class="ml-3 text-left">
+          <p class="text-white font-semibold">Ahmed Johnson</p>
+          <p class="text-gray-400 text-sm">Head of Insights at Applo.IO </p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a 
+        href="#"
+        class="px-6 py-3 font-bold text-white rounded-full 
+               border-2 border-transparent
+               bg-gray-950
+               bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-block"
+      >
+        How Appolo Grew 9x using feedback
+      </a>
+    </div>
+
+    <!-- Right Image -->
+    <div class="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 flex justify-center">
+      <img 
+        class="object-cover object-center rounded-xl shadow-2xl w-full h-auto" 
+        alt="Aggregate Demo" 
+        src="5th Section.png"
+      >
+    </div>
+
+  </div>
+</section>
+
+<!-- 6th Section -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-16 text-center md:text-left">
+    
+    <!-- Left Image -->
+    <div class="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 flex justify-center order-last md:order-first">
+      <img 
+        class="object-cover object-center rounded-xl shadow-2xl w-full h-auto" 
+        alt="Aggregate Demo" 
+        src="6th Section.png"
+      >
+    </div>
+
+    <!-- Right Content (spaced more) -->
+    <div class="flex flex-col md:w-1/2 items-center md:items-start order-first md:order-last md:pl-10">
+      <h2 class="text-4xl md:text-4xl font-extrabold text-white mb-6">
+        Chat your way to instant insights
+      </h2>
+      <p class="mb-4 leading-relaxed text-gray-300 max-w-lg">
+        "Wisdom saves me hours every week. I can condense <br> feedback with a single click, replacing the tedious process of <br> reading through hundreds of tickets. It’s life-changing!”
+      </p>
+
+      <!-- Testimonial -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="relative">
+          <!-- Gradient Border Behind Image -->
+          <div class="absolute inset-0 rounded-full p-[2px] bg-gradient-to-r from-indigo-400 via-pink-400 to-purple-400"></div>
+          <img 
+            src="Taha.png" 
+            alt="Canva Logo" 
+            class="relative w-12 h-12 rounded-full bg-yellow"
+          >
+        </div>
+        <div class="ml-3 text-left">
+          <p class="text-white font-semibold">Khuzaima</p>
+          <p class="text-gray-400 text-sm">Head of Descript</p>
+        </div>
+      </div>
+
+      <!-- CTA Button -->
+      <a 
+        href="#"
+        class="px-6 py-3 font-bold text-white rounded-full 
+               border-2 border-transparent
+               bg-gray-950
+               bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-block"
+      >
+        How Descript Connect Quant and Qual
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+      
+      <!-- Testimonials Container -->
+      <div id="testimonial-container">
+        <!-- Testimonial 1 -->
+        <div class="testimonial">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-24 h-24 rounded-full mb-4 mx-auto" alt="HOLDEN CAULFIELD">
+          <p class="leading-relaxed text-lg px-4">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-4 mb-2"></span>
+          <h2 class="text-white font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+          <p class="text-gray-500">Senior Product Designer</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="testimonial hidden">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-24 h-24 rounded-full mb-4 mx-auto" alt="JANE DOE">
+          <p class="leading-relaxed text-lg px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-4 mb-2"></span>
+          <h2 class="text-white font-medium title-font tracking-wider text-sm">JANE DOE</h2>
+          <p class="text-gray-500">Marketing Manager</p>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="testimonial hidden">
+          <img src="https://randomuser.me/api/portraits/men/65.jpg" class="w-24 h-24 rounded-full mb-4 mx-auto" alt="JOHN SMITH">
+          <p class="leading-relaxed text-lg px-4">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+          <span class="inline-block h-1 w-10 rounded bg-indigo-500 mt-4 mb-2"></span>
+          <h2 class="text-white font-medium title-font tracking-wider text-sm">JOHN SMITH</h2>
+          <p class="text-gray-500">CEO, TechCorp</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JavaScript to Switch Testimonials -->
+<script>
+  const testimonials = document.querySelectorAll('#testimonial-container .testimonial');
+  let index = 0;
+
+  setInterval(() => {
+    testimonials[index].classList.add('hidden'); // hide current
+    index = (index + 1) % testimonials.length; // next index
+    testimonials[index].classList.remove('hidden'); // show next
+  }, 5000); // switch every 5 seconds
+</script>
+
+
+
+<!-- Integration Section -->
+<section class="text-gray-400 bg-black body-font">
+  <div class="container mx-auto flex flex-col md:flex-row items-center justify-center px-5 py-20 gap-16 text-center md:text-left">
+    
+    <!-- Left Image -->
+    <div class="lg:max-w-xl lg:w-full md:w-1/2 w-5/6 flex justify-center order-last md:order-first">
+      <img 
+        class="object-cover object-center rounded-xl shadow-2xl w-full h-auto" 
+        alt="Aggregate Demo" 
+        src="integrate.png"
+      >
+    </div>
+
+    <!-- Right Content (spaced more) -->
+    <div class="flex flex-col md:w-1/2 items-center md:items-start order-first md:order-last md:pl-10">
+      <h2 class="text-4xl md:text-4xl font-extrabold text-white mb-6">
+        Chat your way to instant insights
+      </h2>
+      <p class="mb-4 leading-relaxed text-gray-300 max-w-lg">
+        "Wisdom saves me hours every week. I can condense <br> feedback with a single click, replacing the tedious process of <br> reading through hundreds of tickets. It’s life-changing!”
+      </p>
+
+      <!-- Testimonial -->
+      <div class="flex items-center justify-center md:justify-start mb-6">
+        <div class="relative">
+       
+          
+        
+
+      <!-- CTA Button -->
+      <a 
+        href="#"
+        class="px-6 py-3 font-bold text-white rounded-full 
+               border-2 border-transparent
+               bg-gray-950
+               bg-clip-padding
+               [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#6366f1,#ec4899)_border-box] 
+               hover:opacity-90 transition inline-block"
+      >
+        How Descript Connect Quant and Qual
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Call to Action Section -->
+<section class="bg-gradient-to-r from-indigo-500 via-pink-500 to-purple-500 py-20">
+  <div class="container mx-auto text-center px-5">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6">
+      Ready to turn intelligence into intuition?
+    </h2>
+    <p class="text-white mb-8 max-w-2xl mx-auto">
+      Start empowering your teams today with actionable insights that drive growth.
+    </p>
+    <a 
+      href="#"
+      class="px-8 py-4 font-bold text-white rounded-full 
+             border-2 border-transparent
+             bg-gray-950
+             bg-clip-padding
+             [background:linear-gradient(#0f0f10,#0f0f10)_padding-box,linear-gradient(to_right,#ffffff,#ffffff)_border-box] 
+             hover:opacity-90 transition inline-block"
+    >
+      Book a Demo
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-black text-gray-400 py-12">
+  <div class="container mx-auto px-5 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <!-- Logo + Social -->
+    <div>
+      <img src="Logo.png" alt="Enterpret Logo" class="h-10 mb-4">
+      <p class="text-sm mb-4">Making customer feedback actionable.</p>
+      <div class="flex space-x-4">
+        <a href="#"><img src="twitter.png" alt="Twitter" class="h-6 w-6"></a>
+        <a href="#"><img src="insta.png" alt="Instagram" class="h-6 w-6"></a>
+        <a href="#"><img src="Whatsapp.png" alt="Whatsapp" class="h-6 w-6"></a>
+      </div>
+    </div>
+
+    <!-- Company -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Company</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">About</a></li>
+        <li><a href="#" class="hover:text-white">Careers</a></li>
+        <li><a href="#" class="hover:text-white">Blog</a></li>
+      </ul>
+    </div>
+
+    <!-- Product -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Product</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Features</a></li>
+        <li><a href="#" class="hover:text-white">Pricing</a></li>
+        <li><a href="#" class="hover:text-white">Integrations</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div>
+      <h3 class="text-white font-semibold mb-4">Resources</h3>
+      <ul class="space-y-2">
+        <li><a href="#" class="hover:text-white">Help Center</a></li>
+        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Bottom -->
+  <div class="mt-10 text-center text-sm text-gray-500">
+    © 2025 Enterpret. All rights reserved.
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

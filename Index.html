@@ -11,16 +11,17 @@
   <body class="bg-gray-950" x-data="{ mobileMenu: false }">
 
     <!-- Top Gradient Announcement Bar -->
-    <div class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 text-white text-center text-sm py-2 px-4 fixed top-0 left-0 z-50">
-      <p class="leading-tight">
-        Introducing <span class="font-semibold">Issue Detection AI Agent</span>: Detect, analyze and act on emerging issues – 24/7. 
-        <a href="#" class="underline font-medium hover:text-gray-100 ml-1">Learn more →</a>
-      </p>
-    </div>
+<div class="w-full bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600 text-white text-center text-sm py-2 px-4 fixed top-0 left-0 z-50">
+  <p class="leading-tight">
+    Introducing <span class="font-semibold">Issue Detection AI Agent</span>: Detect, analyze and act on emerging issues – 24/7. 
+    <a href="#" class="underline font-medium hover:text-gray-100 ml-1">Learn more →</a>
+  </p>
+</div>
 
-    <!-- Header -->
-    <header class="fixed top-[64px] md:top-8 left-0 w-full bg-gray-950/80 backdrop-blur-md border-b border-gray-800 z-40">
-      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+<!-- Header -->
+<header class="fixed left-0 w-full bg-gray-950/80 backdrop-blur-md border-b border-gray-800 z-40
+               top-[40px] md:top-8">
+  <div class="max-w-7xl mx-auto px-6 flex items-center justify-between h-24">
         
         <!-- Logo -->
         <a href="#">
@@ -129,13 +130,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         </a>
-        <a href="https://www.enterpret.com/enterpret-in-action" class="block hover:text-white">Login</a>
-        <a
-          href="https://www.enterpret.com/enterpret-in-action"
-          class="block text-center bg-gradient-to-r from-pink-500 to-purple-600 hover:opacity-90 text-white px-5 py-2 rounded-full font-medium transition"
-        >
-          Book a Demo
-        </a>
+        
       </div>
     </header>
 
@@ -196,14 +191,21 @@
 
 
 
-    <!-- Full-Width Logo Showcase Section -->
-    <section class="bg-gray-950 py-16">
-        
+  <!-- Full-Width Logo Showcase Section -->
+<section class="bg-gray-950 py-16">
 
-        <!-- Full Display Image -->
-        <img src="Different Logo Images.png" alt="Company Logos" class="w-full h-auto opacity-90 hover:opacity-100 transition" />
-      </div>
-    </section>
+  <!-- Desktop & Laptop Image -->
+  <div class="hidden md:block">
+    <img src="Different Logo Images.png" alt="Company Logos" class="w-full h-auto opacity-90 hover:opacity-100 transition" />
+  </div>
+
+  <!-- Tablet & Mobile Image -->
+  <div class="block md:hidden">
+    <img src="mobile.png" alt="Company Logos" class="w-full h-auto opacity-90 hover:opacity-100 transition" />
+  </div>
+
+</section>
+
 
 
 
